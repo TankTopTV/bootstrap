@@ -13,38 +13,38 @@
 @grayDarker:            #222;
 @grayDark:              #333;
 @gray:                  #555;
-@grayLight:             #999;
+@grayLight:             #777;
 @grayLighter:           #eee;
 @white:                 #fff;
 
 
 // Accent colors
 // -------------------------
-@blue:                  #049cdb;
+@blue:                  #53c7f1;
 @blueDark:              #0064cd;
-@green:                 #46a546;
-@red:                   #9d261d;
-@yellow:                #ffc40d;
-@orange:                #f89406;
-@pink:                  #c3325f;
-@purple:                #7a43b6;
+@green:                 #4fe55d;
+@red:                   #f42b56;
+@yellow:                #f7e31e;
+@orange:                #f7bf1e;
+@pink:                  #cc22ae;
+@purple:                #5762d9;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             #6d727c;
 
 
 // Links
 // -------------------------
-@linkColor:             #08c;
-@linkColorHover:        darken(@linkColor, 15%);
+@linkColor:             @blue;
+@linkColorHover:        #5762d9;
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -129,7 +129,7 @@
 @dropdownLinkColorActive:       @white;
 
 @dropdownLinkBackgroundActive:  @linkColor;
-@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+@dropdownLinkBackgroundHover:   @green;
 
 
 
@@ -181,16 +181,16 @@
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+@navbarBackgroundHighlight:       @white;
+@navbarBackground:                @white;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
-@navbarLinkColorHover:            @grayDark;
-@navbarLinkColorActive:           @gray;
+@navbarText:                      #6d727c;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @pink;
+@navbarLinkColorActive:           @red;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive:      transparent;
 
 @navbarBrandColor:                @navbarLinkColor;
 
@@ -230,20 +230,20 @@
 
 // Form states and alerts
 // -------------------------
-@warningText:             #c09853;
-@warningBackground:       #fcf8e3;
+@warningText:             @white;
+@warningBackground:       @orange;
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@errorText:               #b94a48;
-@errorBackground:         #f2dede;
+@errorText:               @white;
+@errorBackground:         @red;
 @errorBorder:             darken(spin(@errorBackground, -10), 3%);
 
-@successText:             #468847;
-@successBackground:       #dff0d8;
+@successText:             @white;
+@successBackground:       @green;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
-@infoBackground:          #d9edf7;
+@infoText:                @white;
+@infoBackground:          @purple;
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 
