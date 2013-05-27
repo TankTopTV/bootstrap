@@ -52,6 +52,11 @@
     constructor: Typeahead
 
   , select: function () {
+      // Ignore if nothing is active
+      if (!this.$menu.find('.active').length) {
+        return this;
+      }
+
       this.fill();
       return this.hide();
     }
