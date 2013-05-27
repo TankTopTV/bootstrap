@@ -157,7 +157,10 @@
         return i[0]
       })
 
-      items.first().addClass('active')
+      if (!this.options.googleish) {
+        items.first().addClass('active')
+      }
+
       this.$menu.html(items)
       return this
     }
