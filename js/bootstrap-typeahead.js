@@ -1,5 +1,5 @@
 /* =============================================================
- * bootstrap-typeahead.js v2.3.2
+ * bootstrap-typeahead.js v2.2.1 - plus tanktop changes
  * http://twitter.github.com/bootstrap/javascript.html#typeahead
  * =============================================================
  * Copyright 2012 Twitter, Inc.
@@ -17,6 +17,14 @@
  * limitations under the License.
  * ============================================================ */
 
+
+/* Typeahead modified for "Google-ish" behaviour.
+ *
+ * - Hitting enter runs search with current contents of typeahead
+ * - Moving up and down fills search box with currently selected drop-down field
+ *
+ * select this behaviour by setting "googleish" option
+ */
 
 !function($){
 
@@ -44,15 +52,21 @@
     constructor: Typeahead
 
   , select: function () {
+      this.fill();
+      return this.hide();
+    }
+
+  , fill: function () {
+      // Fill the element with the current active drop-down selection
       var val = this.$menu.find('.active').attr('data-value')
       this.$element
         .val(this.updater(val))
-        .change()
-      return this.hide()
-    }
+        .change();
+      return this;
+  }
 
   , updater: function (item) {
-      return item
+      return item;
     }
 
   , show: function () {
@@ -157,6 +171,7 @@
       }
 
       next.addClass('active')
+      if (this.options.googleish) this.fill();
     }
 
   , prev: function (event) {
@@ -168,6 +183,7 @@
       }
 
       prev.addClass('active')
+      if (this.options.googleish) this.fill();
     }
 
   , listen: function () {
@@ -199,9 +215,14 @@
   , move: function (e) {
       if (!this.shown) return
 
+
       switch(e.keyCode) {
-        case 9: // tab
         case 13: // enter
+          if (this.options.googleish) return;
+          e.preventDefault()
+          break
+
+        case 9: // tab
         case 27: // escape
           e.preventDefault()
           break
@@ -239,8 +260,13 @@
         case 18: // alt
           break
 
-        case 9: // tab
         case 13: // enter
+          if (this.options.googleish) return
+          if (!this.shown) return
+          this.select()
+          return;
+
+        case 9: // tab
           if (!this.shown) return
           this.select()
           break
@@ -309,6 +335,8 @@
   , menu: '<ul class="typeahead dropdown-menu"></ul>'
   , item: '<li><a href="#"></a></li>'
   , minLength: 1
+  , googleish: false
+
   }
 
   $.fn.typeahead.Constructor = Typeahead
